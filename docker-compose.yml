@@ -1,0 +1,20 @@
+services:
+  grpc-client:
+    container_name: grpc-client
+    entrypoint: /usr/src/app/client
+    build:
+      context: ./src
+      dockerfile: client_dir/Dockerfile
+    ports:
+      - 5050:5050
+
+  grpc-service:
+    container_name: grpc-service
+    entrypoint: /usr/src/app/server
+    build: 
+      context: ./src
+      dockerfile: service/Dockerfile
+    ports:
+      - 5000:5000
+
+
